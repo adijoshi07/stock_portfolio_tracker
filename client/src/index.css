@@ -1,7 +1,0 @@
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: sans-serif; }
-input, button, select, textarea { font-family: inherit; font-size: 14px; }
-input { padding: 8px 10px; border: 1px solid #d1d5db; border-radius: 6px; outline: none; width: 100%; }
-input:focus { border-color: #3b82f6; }
-button { padding: 8px 14px; border: 1px solid #d1d5db; border-radius: 6px; cursor: pointer; background: white; }
-button:hover { background: #f9fafb; }

@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 
-const API =  import.meta.env.VITE_API_URL;
+const API =  import.meta.env.API_URL;
 const CLAUDE_API = "https://api.anthropic.com/v1/messages";
 
 function getToken() { return localStorage.getItem("spt_token"); }

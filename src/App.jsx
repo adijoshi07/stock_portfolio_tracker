@@ -54,7 +54,7 @@ function AuthPage({ onAuth, addToast }) {
     e.preventDefault(); setLoading(true);
     try {
       const body = mode === "login" ? { email: form.email, password: form.password } : { name: form.name, email: form.email, password: form.password };
-      const data = await api(`/users/${mode}`, { method: "POST", body: JSON.stringify(body) });
+      const data = await api(`/api/users/${mode}`, { method: "POST", body: JSON.stringify(body) });
       if (mode === "login") { localStorage.setItem("spt_token", data.token); localStorage.setItem("spt_user", JSON.stringify(data.user)); onAuth(data.user); }
       else { addToast("Account created — sign in to continue."); setMode("login"); }
     } catch (err) { addToast(err.message, "error"); } finally { setLoading(false); }

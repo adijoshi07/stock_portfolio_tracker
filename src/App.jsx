@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 
-const API =  import.meta.env.API_URL;
+const API =  import.meta.env.VITE_API_URL;
 const CLAUDE_API = "https://api.anthropic.com/v1/messages";
 
 function getToken() { return localStorage.getItem("spt_token"); }
@@ -21,20 +21,6 @@ async function api(path, options = {}) {
   const data = await r.json();
   if (!r.ok) throw new Error(data.message || "Request failed");
   return data;
-}
-
-async function askClaude(prompt) {
-  const r = await fetch(CLAUDE_API, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      model: "claude-sonnet-4-6",
-      max_tokens: 1000,
-      messages: [{ role: "user", content: prompt }],
-    }),
-  });
-  const data = await r.json();
-  return data.content?.[0]?.text || "No response received.";
 }
 
 function useToast() {
